@@ -1,7 +1,0 @@
-Tasks
-
-1. Write a sample loadable kernel module and verify that it works---can be loaded and removed.
-2. Print output from the module to a syslog file.
-3. Print output from the module to the console.
-4. Extend the basic module to accept command line parameters. Add a simple conditional clause to do perform different tasks (e.g., print different outputs) based on input parameters.
-5. Read value from any exported data variable from the kernel symbol table and print it. Print it a few times and explain behaviour. The value should change for each iteration.
