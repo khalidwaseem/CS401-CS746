@@ -1,0 +1,18 @@
+Assignment #2 Sharing memory between userspace and the kernel using the mmap technique. 
+
+Different ways in which userspace and kernel communicate : 
+	i. system calls, ioctls 
+	ii. VFS (procfs, sysfs) 
+	iii. mmap technique 
+In this assignment we will use third technique to create an interface between the user and kernel space. 
+
+Key Tasks:
+	1. Create a character device, assign it a major and minor number.
+	2. Register the character device, override/initial operations of the file_operations struct. (open, release, mmap)
+	3. Initialization of module should pre-allocate memory in the kernel (to be shared with user space). Store local reference to this memory. Write some custom data to memory as a header.
+	4. Open the char device in user space and mmap a region of memory using the file handle for the char device.
+	5. The mmap call should not physically map a memory region, instead it should setup the vma_ops for implement page fault handling of faults generated in the virtual address region (vma) returned by the mmap call.
+	6. Treat the mmapped region as the shared memory regiong with the kernel. Access to the virtual addresses of the mmapped region should access the memoru allocated and managed by the kernel.
+	7. Write to shared region from userspace. Skip the header written by kernel.
+	8. Read from virtual address space, ensure kernel writes are visible in user program.
+	9. On close of the device file, dump state of memory region. This should reflect writes from user space.

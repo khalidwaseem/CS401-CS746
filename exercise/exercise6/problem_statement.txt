@@ -1,0 +1,17 @@
+Exercise #6
+ 
+The aim of this exercise is to understand interfacing with device files for implementing custom 
+operations using the ioctl function. 
+
+Tasks
+1. Write a module that registers a char device and overrides its file operations, in particular the 
+   ioctl function.
+2. Creation of a char device and registration of module have to be included.
+3. Implement a custom ioctl function that will be used to read or write data from a shared 
+   kernel-allocated memory object.
+4. Implement a user-space process that opens the file and reads/writes data using the custom ioctl 
+   function.
+5. Multiple user-space processes should be able to open the char device file and read/write 
+   simultaneously from it.
+6. Note: The shared memory object will require protection to enable safe concurrent access.
+7. Addition of at least one feature not mentioned in the exercise description. the more the merrier!

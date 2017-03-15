@@ -1,0 +1,14 @@
+Assignment #1 Estimate the working set size (WSS) or a process. 
+
+Resident set size (RSS) is the set of physical pages mapped to a processes' virtual address space. Working set size (WSS) is the set of pages that are ''frequently'' used by the process. By used we mean pages accessed for read or write. 
+
+Key tasks:
+	1. Trap page accesses and count them. Do this in a time duration over a subset of pages. Change subset of pages after every duration.
+	2. Setup page protection and status bits for mapped physical pages of process such that the page remains in memory but a page fault is generated on access. Use a combination of the _PAGE_PRESENT and _PAGE_PROTNONE pte flags for this purpose.
+You can either set the protection bits for all pages for a subset of randomly selected pages. Make this an input parameter to the loadable module.
+	3. On page fault, do book keeping to update statistics related to access. We will treat single access to a page within a time duration as the page being used/required often.
+	4. Also, need to recognize that the fault generated was due to setting manipulated by custom code and not by existing kernel code.
+	5. On identifying page fault due to our setting for process of interest, invoke a hook function (to be implemented in a module) for book-keeping.
+	6. After page access is check and counted, reset the page protection bits and return to default page fault handler for page fault handling by the kernel. For each iteration, WSS is the number of pages accessed relative to number of pages protected in each duration.
+	7. Repeat the above process for the next iteration and repeat the same for several iterations. Report the average WSS over all durations.
+	8. Use custom programs with different accesses etc to demonstrate correctness. Generate at least 5 different types of examples. Novelty of use-cases will be considered for grading.
