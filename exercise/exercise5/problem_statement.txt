@@ -1,0 +1,18 @@
+Exercise #5
+ 
+The aim of this exercise is to understand the virtual file system layer of Linux and also usage of 
+example in-built kernel data structures. 
+
+Part 1
+1. Write a loadable kernel modile to create a two files in the /proc directory. One to read data from 
+   and one to write data to. You should allow simultaneous write/read access on both. Use the in-built 
+   kernel data structure kfifo to store data written to the file.
+2. Implement the producer-consumer logic. A producer writes into a file, and data gets stored in the 
+   kfifo object. When a consumer reads from the file data is removed from the queue in the order of 
+   insertion. (Synchronisation can be added later)
+
+Part 2
+1. Create a set of /sys files which report different statistics of the producer-consumer interation. 
+   e.g., number of read/write operations, number of bytes read/written etc.
+2. Create a special /sys file that configures the granularity of read oprations (in bytes). Each read, 
+   dequeues the configured number of bytes.

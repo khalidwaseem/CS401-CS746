@@ -1,0 +1,23 @@
+Exercise #4 
+
+The aim of this exercise is to understand the process state and specifically the memory descriptor 
+and the process descriptor. 
+
+Given a process identifier (pid) to a kernel module, the module performs the following tasks,
+
+1. Identifies the process in the task list.
+2. Walks through all the virtual memory area descriptions and summarizes each area. summary should 
+   include output similar to or more than that reported by /proc/$PID/maps
+3. Estimate the RSS (resident set size) of the process. The RSS is the set if in-memory physical pages 
+   for a process. While the committed virtual memory region can be quite large the RSS can be quite 
+   different. 
+   The following sub-tasks will be required for this part: 
+	- understand and implement a procedure for doing a page table walk in software for resolving 
+	virtual addresses to a physical address. 
+	- setup the resolution to span all pages in the the valid virtual address regions of the 
+	process 
+	- estimate RSS 
+	- report RSS, virtual memory region statistics for each VMA 
+	- repeat above to show similarity and differences in VMA sizes and RSS 
+	- /proc/$PID/smaps for a possible set of output variables 
+4. Demonstrate correctness and features for each sub-task.

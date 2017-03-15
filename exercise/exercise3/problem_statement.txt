@@ -1,0 +1,6 @@
+Tasks
+
+1. Write a new system call and a user-space process that invokes it. Test correctness. The system call 
+when invoked can print the pid (process id) of the invoking process.
+2. Write a Linux kernel module to intercept this new new system call and alter its functionality. 
+When the module is removed, the original system call functionality should be restored.
